@@ -120,10 +120,8 @@ function getBabelEsmPlugin(config) {
 	if (config.esm) {
 		esmPlugins.push(
 			new BabelEsmPlugin({
-				filename: config.isProd
-					? '[name].[chunkhash:5].esm.js'
-					: '[name].esm.js',
-				chunkFilename: '[name].chunk.[chunkhash:5].esm.js',
+				filename: config.isProd ? '[name].[chunkhash].esm.js' : '[name].esm.js',
+				chunkFilename: '[name].chunk.[chunkhash].esm.js',
 				excludedPlugins: ['BabelEsmPlugin', 'SWBuilderPlugin'],
 				beforeStartExecution: (plugins, newConfig) => {
 					const babelPlugins = newConfig.plugins;
@@ -220,8 +218,8 @@ function isProd(config) {
 	if (config.esm) {
 		prodConfig.plugins.push(
 			new BabelEsmPlugin({
-				filename: '[name].[chunkhash:5].esm.js',
-				chunkFilename: '[name].chunk.[chunkhash:5].esm.js',
+				filename: '[name].[chunkhash].esm.js',
+				chunkFilename: '[name].chunk.[chunkhash].esm.js',
 				excludedPlugins: ['BabelEsmPlugin', 'SWBuilderPlugin'],
 				beforeStartExecution: (plugins, newConfig) => {
 					const babelPlugins = newConfig.plugins;
