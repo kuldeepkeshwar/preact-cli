@@ -44,8 +44,8 @@ async function clientConfig(env) {
 		output: {
 			path: env.dest,
 			publicPath: '/',
-			filename: isProd ? '[name].[chunkhash:5].js' : '[name].js',
-			chunkFilename: '[name].chunk.[chunkhash:5].js',
+			filename: isProd ? '[name].[chunkhash].js' : '[name].js',
+			chunkFilename: '[name].chunk.[chunkhash].js',
 		},
 
 		resolveLoader: {
